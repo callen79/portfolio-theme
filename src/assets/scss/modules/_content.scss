@@ -1,5 +1,10 @@
+body:not(.wp-admin):not(.mce-content-body) {
+  background:#333;  
+  color:#999;
+}
+
 .main-container {
-  @include xy-grid-container;
+  //@include xy-grid-container;
 }
 
 .main-grid {
@@ -26,7 +31,8 @@
 
   // Full width template
   .main-content-full-width {
-    @include xy-cell(12);
+    width:100%;
+    //@include xy-cell(12);
   }
 
   // Default template

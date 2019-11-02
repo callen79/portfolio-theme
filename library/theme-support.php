@@ -48,3 +48,12 @@ if ( ! function_exists( 'foundationpress_theme_support' ) ) :
 
 	add_action( 'after_setup_theme', 'foundationpress_theme_support' );
 endif;
+
+ // Extra search form needed for Mobile
+function extra_search_form( $form ) {
+    $form = '<form role="search" method="get" id="search-form-mobile" action="'. home_url( '/' ) .'">';
+    $form .= '<input name="s" id="search-mobile" class="input-group-field" type="text" placeholder="Looking for something, Chief?" title="Search">';
+    $form .= '<input type="submit" value="GO" class="button warning large">';
+    $form .= '</form>';
+    return $form;
+}

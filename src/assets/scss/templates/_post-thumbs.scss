@@ -1,0 +1,136 @@
+// work examples
+$work-example-height: 15rem; 
+
+body:not(.single)  article.post {
+    display:table; 
+
+    a.project {
+      height:$work-example-height;
+      border:solid 1px #ccc;
+      display:block;
+      position:relative;
+      box-shadow:0;
+      transition: box-shadow ease-out .6s;
+      overflow:hidden;
+
+      &:hover {
+
+        .work-info {
+          top: 0;
+          opacity: 1;
+          transition: all ease-out .2s;
+        }
+      }
+
+      @include breakpoint(xlarge up) {
+        height: $work-example-height + 3;
+      }
+
+      @include breakpoint(xxlarge up) {
+        height: $work-example-height + 5;
+      }
+    }
+    
+    .work-img {
+      height:$work-example-height;
+      overflow:hidden;
+      position:absolute;
+      top:0;
+      left:0;
+      z-index:5;
+
+      img {
+        width:100%; 
+        height:auto;
+      }
+
+      @include breakpoint(xlarge) {
+        height: $work-example-height + 3;
+      }
+
+      @include breakpoint(xxlarge up) {
+        height: $work-example-height + 5;
+      }
+    }
+
+    .work-info {
+      width:100%;
+      height:$work-example-height;
+      padding: 10%;
+      background: rgba(25,25,25,.92);
+      position:absolute;
+      top:$work-example-height;
+      z-index:10;
+      line-height: 1.1;
+      opacity:.5;
+      transition: all ease-in .25s;
+      transition-delay:.1s;
+
+      h3 {
+        padding:0;
+        margin:0;
+        font-family: $raleway-font;
+        font-weight: 700;
+        font-size:1em;
+        line-height:1.25;
+        color:#fff;
+
+        @include breakpoint(xlarge up) {
+          font-size:1.4em;
+        }
+      }
+
+      .divider {
+        width:0;
+        height:1px;
+        margin:1.6rem 0;
+        display:block;
+        border-bottom:solid 1px #bbb;
+        transition: all ease-in .25s;
+        transition-delay:.1s;
+      }
+
+      .info {
+        opacity: 0;
+        transition: width ease-out .5s;
+
+        strong {
+          color:#fff;
+        }
+      }
+
+      @include breakpoint(xlarge up) {
+        top: $work-example-height + 5;
+        height: $work-example-height + 5;
+        padding-top:3rem;
+      }
+    }
+
+    &:hover {
+        transform: all ease-out 1s;
+
+        .divider {
+          width:100%;
+          transition: width ease-out .5s;
+          transition-delay:.2s;
+        }
+
+        .info {
+          opacity: 1;
+          transition: opacity ease-out .5s;
+          transition-delay:.2s;
+        }
+
+    }
+
+    @include breakpoint(small) { 
+      height:15rem;
+      margin-bottom:2rem;
+    }
+
+    @include breakpoint(medium only) { 
+      height:13rem;
+    }
+
+
+  }

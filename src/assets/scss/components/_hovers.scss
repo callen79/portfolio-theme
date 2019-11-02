@@ -1,0 +1,45 @@
+@import "compass/css3";
+
+
+.wacom {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+
+  text:{
+    decoration: none;
+    shadow: 0 1px 3px rgba(black, .35);
+  }
+  letter-spacing: .08em;
+  @include transition(.35s ease all);
+  
+  &:hover{
+    line-height: 14em;
+
+    &:before{
+      content: attr(data-text);
+      color: #DEEFF5;
+      position: absolute;
+      top: -4em;
+    }
+  }
+}
+
+.button.wacom {
+  height:3rem;
+  line-height:3rem;
+  margin:0;
+  padding-top:0;
+  padding-bottom:0;
+  font-weight:800;
+
+  text:{
+    decoration: none;
+    shadow:none;
+  }
+  letter-spacing: 0em;
+
+  &:hover {
+    line-height:10rem;
+  }
+}

@@ -4,95 +4,155 @@ Template Name: Front
 */
 get_header(); ?>
 
-<header class="front-hero" role="banner">
-	<div class="marketing">
-		<div class="tagline">
-			<h1><?php bloginfo( 'name' ); ?></h1>
-			<h4 class="subheader"><?php bloginfo( 'description' ); ?></h4>
-			<a role="button" class="download large button sites-button hide-for-small-only" href="https://github.com/olefredrik/foundationpress">Download FoundationPress</a>
-		</div>
+<?php do_action( 'foundationpress_before_content' ); ?>
 
-		<div class="watch">
-			<span id="stargazers"><a href="https://github.com/olefredrik/foundationpress">1.5k stargazers</a></span>
-			<span id="twitter"><a href="https://twitter.com/olefredrik">@olefredrik</a></span>
-		</div>
-	</div>
-
+<header id="homepage-hero" role="banner">	
+    <hgroup class="show-for-medium-up">
+        <div id="hero-title">
+            <h1>UX Design Lead,<br />
+              Developer <span>&amp;</span><br />
+              Dude With a Vision</h1>
+            <a href="about/" class="button primary round wacom hollow" data-text="Who is this dude?">Who is this dude?</a>
+        </div>
+    </hgroup>
+    
 </header>
 
-<?php do_action( 'foundationpress_before_content' ); ?>
-<?php while ( have_posts() ) : the_post(); ?>
-<section class="intro" role="main">
-	<div class="fp-intro">
+<section id="featured" class="work-featured" role="main">  
+    <h2>Case Studies</h2>
+  
+    <?php while ( have_posts() ) : the_post(); ?>
+    
+    <?php 
+            $args1 = array (
+                'category_name'    => 'featured',
+                'posts_per_page'   => '1',
+            );
+            
+            // The Query
+            $query = new WP_Query( $args1 ); ?>
+         <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+        
+         <article class="post" >
+            <div class="grid-x grid-margin-x">
+              <div class="cell auto">
+                <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">  
+                    <div class="ipad">
+                        <figure>
+                            <?php the_post_thumbnail('fp-xlarge'); ?>
+                        </figure>
+                    </div>
+                  </a>
+              </div>
+              
+              <div class="cell small-12 medium-12 large-4">
+                  <div class="post-content">
 
-		<div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-			<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
-			<div class="entry-content">
-				<?php the_content(); ?>
-			</div>
-			<footer>
-				<?php
-					wp_link_pages(
-						array(
-							'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ),
-							'after'  => '</p></nav>',
-						)
-					);
-				?>
-				<p><?php the_tags(); ?></p>
-			</footer>
-			<?php do_action( 'foundationpress_page_before_comments' ); ?>
-			<?php comments_template(); ?>
-			<?php do_action( 'foundationpress_page_after_comments' ); ?>
-		</div>
+                      <h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+                            
+                            <?php the_excerpt(); ?>
 
-	</div>
+                      <a href="<?php the_permalink() ?>" class="button primary round wacom hollow" data-text="View project">View project</a>
+                  </div> 
+              </div>
+            </div>
+         </article>
+        
+         <?php endwhile; 
+            wp_reset_postdata();
+            else : ?>
 
+            <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+    <?php endif; ?>   
+
+    <?php 
+            $args2 = array (
+                'category_name'    => 'featured',
+                'posts_per_page'   => '1',
+                'offset'      => '1'
+            );
+            
+            // The Query
+            $query = new WP_Query( $args2 ); ?>
+         <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+        
+         <article class="post right" >
+            <div class="grid-x grid-margin-x">
+              <div class="cell small-12 medium-12 large-4">
+                  <div class="post-content">
+                      <h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+                            
+                            <?php the_excerpt(); ?>
+
+                      <a href="<?php the_permalink() ?>" class="button primary round wacom hollow" data-text="View project">View project</a>
+                  </div> 
+              </div>
+
+              <div class="cell auto">
+                <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">  
+                    <div class="ipad">
+                        <figure>
+                            <?php the_post_thumbnail('fp-xlarge'); ?>
+                        </figure>
+                    </div>
+                  </a>
+              </div>
+            </div>
+         </article>
+        
+       <?php endwhile; 
+            wp_reset_postdata();
+            else : ?>
+
+            <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+    <?php endif; ?>   
+
+    <?php 
+            $args3 = array (
+                'category_name'    => 'featured',
+                'posts_per_page'   => '1',
+                'offset'      => '2'
+            );
+            
+            // The Query
+            $query = new WP_Query( $args3 ); ?>
+         <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+        
+         <article class="post" >
+            <div class="grid-x grid-margin-x">
+              <div class="cell auto">
+                <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">  
+                    <div class="ipad">
+                        <figure>
+                            <?php the_post_thumbnail('fp-xlarge'); ?>
+                        </figure>
+                    </div>
+                  </a>
+              </div>
+              
+              <div class="cell small-12 medium-12 large-4">
+                  <div class="post-content">
+
+                      <h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+                            
+                            <?php the_excerpt(); ?>
+
+                      <a href="<?php the_permalink() ?>" class="button primary round wacom hollow" data-text="View project">View project</a>
+                  </div> 
+              </div>
+            </div>
+         </article>
+        
+         <?php endwhile; 
+            wp_reset_postdata();
+            else : ?>
+
+            <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+    <?php endif; ?>              
 </section>
+
 <?php endwhile; ?>
 <?php do_action( 'foundationpress_after_content' ); ?>
 
-<div class="section-divider">
-	<hr />
-</div>
+<?php get_footer(); ?>
 
-
-<section class="benefits">
-	<header>
-		<h2>Build Foundation based sites, powered by WordPress</h2>
-		<h4>Foundation is the professional choice for designers, developers and teams. <br /> WordPress is by far, <a href="http://trends.builtwith.com/cms">the world's most popular CMS</a> (currently powering 38% of the web).</h4>
-	</header>
-
-	<div class="semantic">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/assets/images/demo/semantic.svg" alt="semantic">
-		<h3>Semantic</h3>
-		<p>Everything is semantic. You can have the cleanest markup without sacrificing the utility and speed of Foundation.</p>
-	</div>
-
-	<div class="responsive">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/assets/images/demo/responsive.svg" alt="responsive">
-		<h3>Responsive</h3>
-		<p>You can build for small devices first. Then, as devices get larger and larger, layer in more complexity for a complete responsive design.</p>
-
-	</div>
-
-	<div class="customizable">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/assets/images/demo/customizable.svg" alt="customizable">
-		<h3>Customizable</h3>
-		<p>You can customize your build to include or remove certain elements, as well as define the size of columns, colors, font size and more.</p>
-
-	</div>
-
-	<div class="professional">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/assets/images/demo/professional.svg" alt="professional">
-		<h3>Professional</h3>
-		<p>Millions of designers and developers depend on Foundation. We have business support, training and consulting to help grow your product or service.</p>
-	</div>
-
-	<div class="why-foundation">
-		<a href="/kitchen-sink">See what's in Foundation out of the box →</a>
-	</div>
-
-</section>
-
-<?php get_footer();

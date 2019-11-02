@@ -12,20 +12,20 @@
 
 get_header(); ?>
 
-<?php get_template_part( 'template-parts/featured-image' ); ?>
-<div class="main-container">
-	<div class="main-grid">
-		<main class="main-content">
-			<?php
-			while ( have_posts() ) :
-				the_post();
-?>
-				<?php get_template_part( 'template-parts/content', 'page' ); ?>
-				<?php comments_template(); ?>
-			<?php endwhile; ?>
-		</main>
-		<?php get_sidebar(); ?>
+	 <div class="main-wrap" id="page" role="main">
+		<?php get_template_part( 'template-parts/featured-image' ); ?>
+
+		<?php while ( have_posts() ) : the_post(); ?>
+		  <article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
+		    <?php do_action( 'foundationpress_page_before_entry_content' ); ?>
+		    <div class="entry-content">
+		      <?php the_content(); ?>
+
+		      <?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+		    </div>
+		  </article>
 	</div>
-</div>
-<?php
-get_footer();
+    <?php endwhile;?>
+        
+<?php get_footer();?>
+

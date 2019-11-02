@@ -1,0 +1,309 @@
+// color scheme circles
+$project-color-height: 2rem !default;
+$project-color-width:2rem !default;
+
+//hero
+$hero-height: 64rem;
+
+// featured image frame
+$featured-img-max-width: 66rem;
+$featured-img-max-height: 40rem;
+
+.case-study {
+  padding: .5rem .5rem;
+  border-top: solid 1px #444;
+  border-bottom: solid 1px #444;
+  margin:1rem auto;
+  font-family: $raleway-font;
+  font-size: .9em;
+  font-weight:700;
+  text-transform: uppercase;
+  color:#fff;
+  letter-spacing: 1px;
+}
+
+.single-post {
+
+  article { 
+
+    header {
+      height:$hero-height;
+      width:100%;
+      padding-top:30rem;
+      border-bottom:solid 1px #ccc;
+      background: url('../images/single-bg.jpg') #776c6a repeat-x bottom;
+      overflow:hidden;
+      position:relative;
+      text-align: center;
+
+      h1 {
+        padding:15rem 5rem 0;
+        margin-bottom:.9rem;
+        font-size:3rem;
+        font-family: $raleway-font;
+        font-weight:700;
+        line-height:1;
+
+        @include breakpoint(small only) { 
+          padding-top:8rem;
+          font-size:1.8em;
+        }
+        @include breakpoint(medium only) { 
+          padding-top: 12rem;
+          font-size:2.7em;
+        }
+      }
+
+      hgroup {
+        height:5rem;
+        width:80%;
+        margin:0 auto;
+        position:absolute;
+        top:-2rem;
+        left:10%;
+        display:table;
+        font-size:1em;
+        text-transform: uppercase;
+        color:#ddd;
+
+        #project-details {
+          letter-spacing: 1px;
+        }
+
+        .project-label {
+          color:#efefef;
+          font-weight:700;
+        }
+
+        .case-study {
+          width:16rem;
+        }
+      }
+
+      .featured-img-frame {
+        max-width: $featured-img-max-width;
+        height: $featured-img-max-height;
+        width:100%;
+        padding: 3rem;
+        margin:0 auto;
+        border:solid 2px #888;
+        border-radius:1.4rem;
+        display: table;
+        background: #212932;
+        position:relative;
+        box-shadow:2rem 4rem 3rem rgba(0,0,0,.4);
+
+        img {
+          max-width:60rem;
+          border-radius:10px;
+          width:100%;
+        }
+
+        &.mobile {
+          max-width: 30rem;
+          padding:2.2rem;
+          left:-12rem;
+          z-index:2;
+
+          img {
+            width:25rem;
+          }
+        }
+
+
+        &.mobile.support {
+          max-width: 30rem;
+          padding:2.2rem;
+          position:relative;
+          left:0;
+          z-index:1;
+
+          img {
+            width:25rem;
+          }
+        }
+
+        @include breakpoint(small only) { 
+          width:75%;
+          padding: 1rem;
+        }
+        @include breakpoint(medium only) { 
+          width:80%;
+          padding:2rem;
+          max-width: $featured-img-max-width - 10;
+        }
+        @include breakpoint(large) { 
+          max-width: $featured-img-max-width - 5;
+        }
+
+      }
+
+      .secondary-screen {
+        width:100%;
+        padding: 38.5rem 0 0 30rem;
+        position: absolute;
+        top:0;
+        left:0;
+      }
+
+      a[rel="next"], a[rel="prev"] {
+        padding:1rem 1.2rem;
+        background: rgba(255,255,255,.4);
+        position:absolute;
+        top:45%;
+        color:#000;
+        font-size:2em;
+        transition: all .15s ease-out;
+
+        
+      }
+
+      a[rel="next"] {
+        @include border-corner-radius(top, right, 4px);
+        @include border-corner-radius(bottom, right, 4px);
+        
+        left:0;
+        
+        &:before {
+          content: '\e806';
+        }
+
+        &:hover {
+          padding-left:1.6rem;
+          background: rgba(255,255,255,.9);
+          transition: all .25s ease-out;
+        }
+
+      }
+
+      a[rel="prev"] {
+        @include border-corner-radius(top, left, 4px);
+        @include border-corner-radius(bottom, left, 4px); 
+        right:0;
+
+        &:before {
+          content: '\e807';
+        }
+
+        &:hover {
+          padding-right:1.6rem;
+          background: rgba(255,255,255,.9);
+          transition: all .25s ease-out;
+        }
+      }
+
+      @include breakpoint(small only) { 
+          height:$hero-height - 40;
+        }
+      @include breakpoint(medium only) { 
+          height:$hero-height - 15;
+      }
+
+    }
+
+    .screen-details {
+      width:100%;
+      padding:3rem 0 1.7rem 0;
+      margin:0 0 2rem;
+      border-bottom:solid 1px #ccc;
+      background:#444;
+      clear:both;
+      color:#bbb;
+      letter-spacing:1px;
+      text-transform: uppercase;
+
+      .grid-x {
+        max-width:1040px;
+        margin:0 auto;
+        position: relative;
+        top: -1rem;
+      }
+
+      h6 {
+        display:inline-block;
+        margin:0 0 0 2rem;
+        padding:0;
+        color:#efefef;
+        font-weight:700;
+      }
+      
+      #color-details {
+        position:relative;
+        top:-1rem;
+      }
+      .color {
+        width: $project-color-width;
+        height: $project-color-height;
+        margin:0 0 0 .45rem; 
+        border:solid 2px #fff;
+        border-radius:50%; 
+        display:inline-block;
+        position:relative;
+        top:.64rem;
+      }
+    }
+
+    .description {
+      clear:both;
+      font-family: $droid-serif-font;
+      font-size:1.2em;
+      line-height:2em;
+
+      strong {
+        color:#fff;
+      }
+
+      .row {
+        overflow:visible;
+      }
+    }
+  }
+}
+
+#work-description {
+    padding:10rem 0 8rem 0;
+
+    h2,h3 {
+      color:#fff;
+    }
+
+    h2 {
+      margin:5rem 0 1rem;
+      font-weight:700;
+    }
+}
+
+.cap { 
+    height:4rem;
+    width:5rem;
+    margin:0 .8rem 0 0;
+    display:block;
+    float:left;
+    position:relative;
+    top:-2.2rem;
+    font-family: $raleway-font;
+    font-size: 6em;
+    font-weight:700;
+    line-height:1em;
+    color: $accent;
+
+    &.em {
+      width:6rem;
+    }
+}
+
+#project-slides {
+    padding:10rem 0;
+    border-top:solid 1px #ccc;
+    text-align:center;
+    background:#121212;
+
+    .slide-wrapper {
+      max-width:60rem;
+      margin:0 auto 5rem;
+    }
+}
+
+.single #footer {
+  margin-top:0;
+}

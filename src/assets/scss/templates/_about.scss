@@ -1,0 +1,153 @@
+@import "templates/front";
+
+$about-hero-height: 36rem;
+
+.page-id-6 {
+  @include breakpoint(small only) { 
+    padding-top:$about-hero-height;
+  }
+  @include breakpoint(medium) { 
+    padding-top:$about-hero-height - 12;
+  }
+  @include breakpoint(large up) { 
+    padding-top:$about-hero-height - 7;
+  }
+}
+
+#about-hero {
+  position:absolute;
+  top:0;
+
+  hgroup {
+    position:relative;
+  }
+   
+  #hero-title {
+    width: 50%;
+    margin: 3rem 2rem 0 0;
+    float:right;  
+    position:relative;
+    opacity:.85;
+    text-align:right;
+    font-size: 2.3em;
+    font-weight:700;
+    color:#fff;
+    transition: all .5s;
+    
+    h1, h2 {
+      position:relative;
+      margin:0 0 1rem;
+      font-family: $raleway-font;
+      font-weight:700;
+      color:#fff;
+      text-shadow: 0 0 1rem rgba(0,0,0,.14);
+      text-transform:uppercase;
+      text-align:right;
+      cursor: default;
+      user-select: none;
+
+      @include breakpoint(medium only) {
+        font-size:3em;
+        line-height:4.3rem;
+      }
+
+      @include breakpoint(large only) {
+        font-size:3.3em;
+        line-height:4.85rem;
+      }
+
+      @include breakpoint(xlarge up) {
+        font-size:4.5em;
+        line-height:6.1rem;
+      }
+    }
+
+    h2 {
+      padding-top:.2rem;
+    }
+
+    @include breakpoint(medium only) {
+      margin-top:2rem;
+      width:100%;
+    } 
+  }
+
+  @include breakpoint(small only) { 
+    height:$about-hero-height - 5;
+    background:url('http://www.chrisallendesign.com/wp-content/themes/portfolio3.2/dist/assets/images/banners/chris-allen-about-small.jpg') no-repeat fixed;
+    padding:1rem 0 0;
+  }
+  @include breakpoint(medium) { 
+    height:$about-hero-height - 5;
+    background:url('http://www.chrisallendesign.com/wp-content/themes/portfolio3.2/dist/assets/images/banners/chris-allen-about-medium.jpg') no-repeat fixed;
+    background-size: cover;
+    padding:6rem 0 0;
+  }
+  @include breakpoint(large up) { 
+    background:url('http://www.chrisallendesign.com/wp-content/themes/portfolio3.2/dist/assets/images/banners/chris-allen-about-large.jpg') no-repeat fixed;
+    height:$about-hero-height;
+    background-size: cover;
+  }
+  @include breakpoint(xxxlarge up) { 
+    
+  }
+}
+
+#about-the-dude {
+  padding: 6rem 15%;
+  text-align: left;
+
+  .cap {
+    width:5.1rem;
+    margin-right:4.5rem;
+  }
+  @include breakpoint(large up) {
+    padding:10rem 0;
+  }
+}
+
+#work-experience {
+  padding:10rem 2rem 8rem 5.5%;
+
+  h2 {
+    margin-bottom: 4.5rem;
+    line-height:1;
+    font-family: $raleway-font;
+    font-weight:700;
+    font-size: 3.5em; 
+    color:#fff; 
+  }
+
+  .grid-container {
+    width:60%;
+    padding-bottom: 2rem;
+    text-align:left;
+
+    h3 {
+      margin:.7rem 0 0; 
+      padding:0;
+      font-family: $raleway-font;
+      font-size:1.5em;
+      font-weight: 700;
+      line-height:1.1;
+      color:#aaa;
+    }
+
+    .dates {
+      color:#777;
+    }
+
+    strong {
+      font-family: $raleway-font;
+      font-size:2em;
+      font-weight: 600;
+      color:#fff;
+    }
+  }
+
+  @include breakpoint(small only) {
+    padding-left:0;
+  }
+}
+
+

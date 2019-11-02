@@ -98,3 +98,20 @@ if ( ! function_exists( 'foundationpress_remove_recent_comments_style' ) ) :
 		}
 	}
 endif;
+
+/**
+ * Clean up content.+
+ * ----------------------------------------------------------------------------
+ */
+
+// Remove '...' at the end of excerpt
+function wpdocs_excerpt_more( $more ) {
+    return '';
+}
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
+// Increase word count of excerpt
+function wpdocs_custom_excerpt_length( $length ) {
+    return 60;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );

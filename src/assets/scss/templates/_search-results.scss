@@ -1,0 +1,21 @@
+body.search {
+
+	header {
+		padding:0 0 7rem;
+		text-align: center;
+		color:#fff;
+
+		h1 {
+			padding:0;
+			margin:0;
+			color:#fff;
+			font-family: $raleway-font;
+			font-weight:700;
+			letter-spacing: -1px;
+
+			span {
+				color:$accent;
+			}
+		}
+	}
+}

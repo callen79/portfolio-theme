@@ -1,201 +1,388 @@
-// Page header
-.front-hero {
-  .marketing {
-    @include xy-grid-container(55rem);
-    @include xy-grid;
+@import "global/colors";
+@import "templates/single-post";
+
+// hero settings
+$hero-height: 55rem;
+$hero-overlay-background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #333 100%) rgba(30,30,30,.7);
+$hero-title-font-size: 3em;
+
+// height of featured section
+$featured-height: 70rem;
+
+// featured ipad dimensions
+$ipad-radius: 50px;
+$ipad-width: 78rem;
+$ipad-height: 45rem;
+$ipad-screen-height: $ipad-height - 4;
+$ipad-screen-width: 100%;
+
+// color scheme circles
+$project-color-height: 2rem;
+$project-color-width: 2rem;
+
+
+#homepage-hero, #about-hero {
+  width:100%;
+  height:$hero-height;
+  background-position: -20% 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  top:0;
+  margin:0;
+  overflow:hidden;
+}
+
+#homepage-hero {
+  hgroup {
+    position:relative;
+    width:100%;
+    height: $hero-height + 5;
+    background: $hero-overlay-background;
+    box-shadow: inset 0 -1rem 2rem #333;
+    text-align:center;
+  }
+  
+  #hero-title {
+    opacity:.85;
+    position:absolute;
+    right:5%;
+    text-align:right;
+    color:#fff;
+    transition: all .5s;
+
+    h1 {
+      margin-bottom:2rem;
+      line-height: 1em;
+      text-transform:uppercase;
+      cursor: default;
+      user-select: none;
+
+      @include breakpoint(xxxlarge up) {
+        font-size:15rem;
+      } 
+    }
+
+    .button {
+      font-weight: 500;
+    }
+
+    @include breakpoint(medium only) {
+      width:100%;
+    }
+
+    @include breakpoint(large up) {
+      top:15rem;
+      right:3%;
+    }
+
+    @include breakpoint(xxlarge up) {
+      width:50%;
+      top:20rem;
+      right:8%;
+    } 
   }
 
-  @include breakpoint(small) {
-    background: url('../images/demo/hero-bg-foundation-6-small.svg') bottom center;
+  @include breakpoint(small only) { 
+    background:url('http://www.chrisallendesign.com/wp-content/themes/portfolio3.2/dist/assets/images/banners/chris-allen-design-banner-small.jpg') no-repeat fixed;
+    height:$hero-height - 20;
+    padding:1rem 0 0;
+  }
+  @include breakpoint(medium) { 
+    background:url('http://www.chrisallendesign.com/wp-content/themes/portfolio3.2/dist/assets/images/banners/chris-allen-design-banner-medium.jpg') no-repeat fixed;
+    background-position-x: 5% !important;
     background-size: cover;
-    background-position: bottom;
-    padding: rem-calc(65%) 0;
-    margin: 0 0 rem-calc(32);
-    height: auto;
-    position: relative;
+  }
+  @include breakpoint(large) { 
+    background:url('http://www.chrisallendesign.com/wp-content/themes/portfolio3.2/dist/assets/images/banners/chris-allen-design-banner.jpg') no-repeat fixed;
+    background-position-x: 9% !important;
+    height:$hero-height - 2;
+  }
+  @include breakpoint(xxlarge up) { 
+    background:url('http://www.chrisallendesign.com/wp-content/themes/portfolio3.2/dist/assets/images/banners/chris-allen-design-banner-xlarge.jpg') no-repeat fixed;
+    background-position-x: 33% !important;
+    height:$hero-height;
+  }
+  @include breakpoint(xxxlarge up) { 
+    background:url('http://www.chrisallendesign.com/wp-content/themes/portfolio3.2/dist/assets/images/banners/chris-allen-design-xxlarge2.jpg') no-repeat fixed;
+    background-size: cover;
+    height:$hero-height + 3;
+  }
+}
+
+
+#featured {
+  display:table;
+  width:100%;
+  overflow:hidden;
+  padding:0 6rem 0 6rem;
+
+  h2 {
+    margin:4rem 0;
+
+    @include breakpoint(medium only) {
+      margin:4rem 0 2rem;
+    }
+  }
+
+  article.post {
+    width:100%;
+    
+    position:relative;  
     text-align: left;
-  }
+    display: table;
+    clear:both;
 
-  @include breakpoint(medium) {
-    background: url('../images/demo/hero-bg-foundation-6-large.svg') bottom center;
-    background-size: cover;
-    background-position: center;
-    height: rem-calc(685);
-    margin: 0 0 rem-calc(72);
-  }
-
-  .watch {
-    @include breakpoint(small) {
-      @include xy-cell(7);
+    .auto {
+      position:relative;
     }
 
-    @include breakpoint(medium) {
-      @include xy-cell(12);
+    .post-content {
+      h3 a {
+        color:#f3f3f3; 
+      }
+
+      @include breakpoint(medium only) {
+        display:none;
+      }
+
+      @include breakpoint(large up) {
+        min-height: $hero-height;
+        padding-top:30%;
+      }
     }
 
+    .button {
+      margin:.5rem 0 0;
+      clear:both;
+    }
+
+    .ipad {
+      padding:2rem;
+      border:solid 2px #888;
+      border-radius:20px;
+      background:#212932;
+      overflow:hidden;
+      position:absolute;
+
+      figure {
+        width: $ipad-screen-width; 
+        overflow:hidden;
+        border: solid 2px #888;
+        border-radius:10px;
+        position:relative;
+        
+        img {
+          width:100%;
+        }
+
+        @include breakpoint(medium only) { 
+          height: $ipad-screen-height - 18;
+        }
+
+        @include breakpoint(large) { 
+          height: $ipad-screen-height + 3;
+        }
+        @include breakpoint(xxxlarge) { 
+          height: $ipad-screen-height + 5;
+        }
+      }
+
+      @include breakpoint(small only) { 
+        width: 95%;
+        height: $ipad-height - 19;
+        position: inherit;
+      }
+
+      @include breakpoint(medium only) { 
+        width: 100%;
+        height: $ipad-height - 18;
+        margin:1rem 0;
+        position:inherit;
+      }
+
+      @include breakpoint(large) { 
+        width: $ipad-width - 15;
+        height: $ipad-height + 3;
+      }
+
+      @include breakpoint(xxxlarge) { 
+        width: $ipad-width;
+        height: $ipad-screen-height + 9.5;
+      }
+    }
+
+    &:not(.right) {
+      .ipad {
+        right:6%;
+      }
+    }
+
+    &.right {
+      .ipad {
+        left:6%;
+      }
+    }
+
+    @include breakpoint(large up) { 
+      margin-bottom:10rem;
+    }
+  }
+
+  @include breakpoint(small only) { 
+      display:none;
+  }
+  @include breakpoint(medium only) { 
+      padding:0 3rem;
+  }
+  @include breakpoint(xxxlarge) { 
+    padding: 12rem 6rem 10rem;
+  }
+}
+
+#more-work {
+  padding:7rem 6rem;
+
+  h2 {
+    margin-bottom: 4.5rem;
+    line-height:1;
+    font-family: $raleway-font;
+    font-weight:700;
+    font-size: 3.5em; 
+    color:#fff;
+  }
+
+  .all-work {
+    clear:both;
+    margin-top:1rem;
+  }
+
+  @include breakpoint(small only) { 
+      padding:3rem 2rem;
+  }
+}
+
+#photo-row {
+  padding:5rem 0;
+  background: #584f4f linear-gradient(to bottom,  #584f4f 0%,#444241 100%);
+  
+  article {
+    position:relative;
+    
     a {
-      color: #B4C9D1;
-      cursor: pointer;
-      font-weight: 400;
-      margin-right: rem-calc(20);
-    }
-
-    a:hover {
-      color: #fff;
-    }
-
-    #stargazers {
-      :before {
-        content: "\f09b";
-        font-family: FontAwesome;
-        font-style: normal;
-        font-weight: normal;
-        text-decoration: inherit;
-        color: #B4C9D1;
-        margin-right: rem-calc(8);
-      }
-    }
-
-    #twitter {
-      :before {
-        content: "\f099";
-        font-family: FontAwesome;
-        font-style: normal;
-        font-weight: normal;
-        text-decoration: inherit;
-        color: #B4C9D1;
-        margin-right: rem-calc(8);
-      }
-    }
-
-  }
-
-  .tagline {
-    @include breakpoint(small) {
-      @include xy-cell(8);
-    }
-
-    @include breakpoint(medium) {
-      @include xy-cell(5);
-      padding-top: 6rem;
-    }
-  }
-
-  h1 {
-    color: #fff;
-    font-weight: 500;
-
-    @include breakpoint(small) {
-      font-size: 2.2rem;
-    }
-
-    @include breakpoint(medium) {
-      font-size: 2.875rem;
-    }
-  }
-
-  h4 {
-    color: #fefefe;
-    font-weight: 300;
-    font-size: 1.3125rem;
-  }
-
-  .download {
-    margin-top: rem-calc(20);
-  }
-}
-
-// Intro
-.intro {
-  @include xy-grid-container;
-  @include xy-grid;
-
-  .fp-intro {
-    @include breakpoint(small) {
-      @include xy-cell(12);
-    }
-
-    @include breakpoint(medium) {
-      @include xy-cell(10);
-      @include xy-cell-offset(1);
-
+      display:block;
+      position:relative;
+      height:23.5rem;
+      background:$black;
+      overflow:hidden;
+      margin: 0 .3rem .3rem 0;
+      text-align:center;
+      color:#fff;
+      
       h2 {
-        font-weight: 300;
-        margin-bottom: 1.5rem;
+        position: absolute;
+        top: 37%;
+        width:100%;
+        margin: 0 auto;
+        padding:0 2rem;
+        text-align: center;
+        font-weight:400;
+        font-size:2em;
+        text-shadow: 0 0 8px rgba(0,0,0,.3);
+        transition: all .5s ease-in-out;
+        
+        span {
+          display:inline-block;
+          padding-bottom:1rem;
+          border-bottom: 2px solid #fff;
+          width:100%;
+          transition: all .5s ease-in-out;
+        }
       }
+      img {
+        max-width:800px;  
+        min-width:643px;
+        width:100%;
+        height:auto;
+        position:absolute;
+        top:0;
+        left:0;
+        opacity:.19;
+        transition: all 1s ease-in-out;
+      }
+      &:hover {
+        transition: all 1s ease-in-out;
+        
+        h2 {
 
-      h4 {
-        font-size: 1.125rem;
-        line-height: 1.6;
-        color: #777;
-        margin-bottom: 2rem;
+          transform: rotate(-10deg);
+          transition: all .6s ease-in-out;
+          
+          span {
+            width:150%;
+            margin:0 0 0 -50px;
+            transition: all .6s ease-in-out;
+          }
+        }
+        img {
+          opacity:.55;
+          top:0;
+          left:0;
+           transform:scale(1.15);
+           transition: all 1.5s ease-in-out;
+        }
+      }
+      .post-content {
+        padding:35% 0 0;
+        position:relative;
+        z-index:10;
+        color:#fff;
+        text-align:center;
+
+        h4 {
+          font-size:2.4em;
+          font-weight:700;  
+          color:#fff; 
+          margin:0 1rem;
+          text-shadow: 1px 0 2px rgba(72, 65, 65, .8);
+        }
+        
       }
     }
+    
   }
 }
 
-// Section divider
-.section-divider {
-  @include xy-grid-container;
-  @include xy-grid;
-
-  hr {
-    @include xy-cell(12);
-    @extend .dotted;
-    box-sizing: border-box;
-  }
+// Shared Classes between home, work and single posts
+.roles {
+  margin:0 .25rem 3.5rem;  
+  padding:.5rem;
+  color:#fff;
+  font-weight:bold;
+  text-transform: capitalize;
 }
-
-// Benefits
-.benefits {
-  @include xy-grid-container;
-  @include xy-grid;
-  text-align: center;
+.blog, .page-id-6  {
 
   header {
-    @include xy-cell(12);
+    padding:4rem 6rem 0;
 
-    h2 {
-      font-weight: 300;
-    }
-
-    h4 {
-      font-size: 1.125rem;
-      line-height: 1.6;
-      color: #777;
-    }
-  }
-
-  .semantic,
-  .responsive,
-  .customizable,
-  .professional {
-    @include breakpoint(small) {
-      @include xy-cell(12);
-    }
-
-    @include breakpoint(medium) {
-      @include xy-cell(3);
-    }
-
-    img {
-      padding: 1.25rem;
-      margin: 1rem auto 0 auto;
-    }
-
-    h3 {
-      color: #0a0a0a;
-      font-weight: 300;
-      font-size: 1.75rem;
-    }
-
-    p {
-      font-size: 0.9375rem;
+    h1 {
+        margin: 0 auto;
+        padding:0 2rem;
+        text-align: center;
+        font-family: $raleway-font;
+        font-weight:700;
+        font-size:4em;
+        text-shadow: 0 0 8px rgba(0,0,0,.3);
+        letter-spacing: -1px;
+        color: #fff;
     }
   }
 
-  .why-foundation {
-    @include xy-cell(12);
-    margin-top: 4rem;
+  #featured {
+    padding-top:6rem !important;
   }
+}
+//sub pages 
+.page-template {
+  
 }

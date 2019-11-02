@@ -9,7 +9,7 @@
 
 register_nav_menus(
 	array(
-		'top-bar-r'  => esc_html__( 'Right Top Bar', 'foundationpress' ),
+		'top-bar-r'  => esc_html__( 'Top Nav', 'foundationpress' ),
 		'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
 	)
 );
@@ -20,6 +20,7 @@ register_nav_menus(
  *
  * @link http://codex.wordpress.org/Function_Reference/wp_nav_menu
  */
+
 if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
 	function foundationpress_top_bar_r() {
 		wp_nav_menu(
@@ -73,3 +74,21 @@ if ( ! function_exists( 'foundationpress_add_menuclass' ) ) {
 	}
 	add_filter( 'wp_nav_menu', 'foundationpress_add_menuclass' );
 }
+
+/**
+Add Hover class and data attribute to each menu anchor tag
+*/
+function menu_anchor_attributes( $atts, $item, $args ) {
+    if( $args->theme_location == 'top-bar-r' ) {
+      $atts['data-text'] = ( ! empty( $item->attr_title ) ) ? $item->attr_title : 'test';
+      $atts['class'] = 'wacom';
+      $atts['href'] = $item->url;
+    }
+
+    if( $args->theme_location == 'mobile-nav' ) {
+      $atts['href'] = $item->url;
+    }
+
+    return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'menu_anchor_attributes', 10, 3 );

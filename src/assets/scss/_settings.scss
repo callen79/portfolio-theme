@@ -63,15 +63,16 @@
 
 @import 'util/util';
 @import 'global/colors';
+@import 'global/fonts';
 
 // 1. Global
 // ---------
 
 $global-font-size: 100%;
-$global-width: rem-calc(1200);
+$global-width: 100%;
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #1779ba,
+  primary: #f0c083,
   secondary: #767676,
   success: #3adb76,
   warning: #ffae00,
@@ -84,14 +85,14 @@ $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$body-font-family: $yantramanav, "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
 $global-position: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
-$global-radius: 0;
+$global-radius: 4px;
 $global-menu-padding: 0.7rem 1rem;
 $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
@@ -112,6 +113,7 @@ $breakpoints: (
   large: 1024px,
   xlarge: 1200px,
   xxlarge: 1440px,
+  xxxlarge: 1700px,
 );
 $print-breakpoint: large;
 $breakpoint-classes: (small medium large);

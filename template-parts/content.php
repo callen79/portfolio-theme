@@ -10,30 +10,28 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header>
-	<?php
-		if ( is_single() ) {
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		} else {
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		}
-	?>
-		<?php foundationpress_entry_meta(); ?>
-	</header>
-	<div class="entry-content">
-		<?php the_content(); ?>
-		<?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
-	</div>
-	<footer>
-		<?php
-			wp_link_pages(
-				array(
-					'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ),
-					'after'  => '</p></nav>',
-				)
-			);
-		?>
-		<?php $tag = get_the_tags(); if ( $tag ) { ?><p><?php the_tags(); ?></p><?php } ?>
-	</footer>
+<article class="post cell small-6 medium-3" id="post-<?php the_ID(); ?>">
+	 <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>" class="project">
+	      <div class="work-img">
+		  	<?php the_post_thumbnail( 'home-work-size' ); ?>
+	      </div>
+	      <div class="work-info">
+	          <h3><?php the_title_attribute(); ?></h3>	
+	          <span class="divider"></span>
+	            <span class="info">
+	              <strong>C:</strong> <?php
+	                $mykey_values = get_post_custom_values( 'Client' );
+	                  foreach ( $mykey_values as $key => $value ) {
+	                    echo "$value"; 
+	                }
+	              ?><br />
+	              <strong>T:</strong> <?php
+	                $mykey_values = get_post_custom_values( 'project-type' );
+	                  foreach ( $mykey_values as $key => $value ) {
+	                    echo "$value"; 
+	                }
+	              ?>
+	            </span>
+	      </div>
+	 </a>
 </article>

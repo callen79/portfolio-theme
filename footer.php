@@ -9,7 +9,7 @@
  */
 ?>
 
-<footer class="footer">
+<footer id="footer">
     <div class="footer-container">
         <div class="footer-grid">
             <?php dynamic_sidebar( 'footer-widgets' ); ?>
@@ -17,10 +17,23 @@
     </div>
 </footer>
 
-<?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) : ?>
-	</div><!-- Close off-canvas content -->
-<?php endif; ?>
+
+<div class="reveal contact" id="contact" data-close-on-click="true" data-animation-in="slide-in-right" data-animation-out="slide-out-right" data-reveal>
+  	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Desktop nav widgets") ) : ?>
+	<?php endif;?>
+	<button class="close-button" data-close aria-label="Close modal" type="button">
+	    <span aria-hidden="true">&times;</span>
+	</button>
+</div>
+
+
+<script>
+
+
+    
+</script>
 
 <?php wp_footer(); ?>
+
 </body>
 </html>

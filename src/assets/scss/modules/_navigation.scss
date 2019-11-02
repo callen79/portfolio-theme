@@ -1,7 +1,17 @@
+@import "global/colors";
+@import "global/fonts";
+@import "modules/mobile-navigation";
+
+$topbar-background-color: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #222 100%);
+$topbar-height: 4rem;
+$topbar-hover: rgba(black, .5);
+$color-main: saturate( $accent, 25% );
+
 // Navigation breakpoints
 .mobile-menu,
 .site-title-bar {
-  @include hide-for(medium);
+  @include hide-for(large);
+
 }
 
 .desktop-menu,
@@ -15,9 +25,7 @@
 }
 
 // Mobile menu
-.mobile-menu {
-  display: none; // prevents repaint caused by JS hiding menu onload
-}
+
 
 .off-canvas {
   > ul.menu {
@@ -36,6 +44,7 @@
 }
 
 .title-bar-title {
+
   a {
     font-size: 1rem;
     color: #B9B9B9;
@@ -52,32 +61,76 @@
 
 // Tablet and desktop menu
 
-.top-bar {
+.top-bar, .site-title-bar {
+  width:100%;
+  background: rgba(0,0,0,.2);
+  position:absolute;
+  top:0;
+  left:0;
+  z-index: 100;
 
-  .top-bar-title a {
-    font-size: 1rem;
-    color: #B9B9B9;
-    padding-left: 1rem;
-    line-height: 1.8;
-  }
+  .top-bar-title {
+    margin:0;
 
-  .menu a {
-    color: #e6e6e6;
-    padding-top: 0;
-    padding-bottom: 0;
-    font-weight: bold;
-    font-size: 0.8rem;
-    line-height: 1;
-
-    &:hover:not(.button) {
-      background-color: #42525D;
+    a.site-logo {
+      height: $topbar-height;
+      line-height: $topbar-height;
+      padding: 0 2rem 0 ;
+      color: #fff;
+      font-family: $raleway-font;
+      font-size: 1.5em;
+      font-weight:700;
+      text-transform:uppercase;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+      float:left;
     }
   }
 
-  .menu .active > a { background-color: #ccc; }
+  .top-bar-left .menu a {
+    height: $topbar-height;
+    line-height: $topbar-height;
+    padding: 0 1rem;
+    color: #eee;
+    font-family: $raleway-font;
+    font-size: 1.21em;
+    font-weight:500;
+    line-height: $topbar-height;
+    text-transform:uppercase;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.35);
 
-  .menu>li:not(.menu-text)>a { padding: 1rem; }
-  .menu li:not(:last-child) { border-right: 1px solid #4e4e4e; }
+    &:hover:not(.button):not(.btn-hover) {
+      background: $topbar-hover;
+    }
+
+    &:hover:not(.button) {
+      line-height: $topbar-height * 3.4;
+      background: $topbar-hover;
+    }
+  }
+
+  .top-bar-left .menu li.current-menu-item a {
+    color: $accent;
+  }
+
+  .top-bar-right {
+    padding:0 2rem 0 0;
+
+    .menu i {
+      display:inline-block;
+      height: $topbar-height;
+      padding:.2rem 0 0;
+      font-size:1.9em;
+      line-height: $topbar-height;
+      color:#fff;
+      cursor: pointer;
+    }
+  }
+
+  ul {
+    background:none;
+  }
+
+  .menu .is-active > a { background-color: $topbar-hover; }
 
   .dropdown.menu .submenu { border: 0; }
   .dropdown.menu .has-submenu.is-down-arrow a { padding-right: 1rem; }
@@ -91,15 +144,93 @@
   }
 }
 
-// WP post navigation
-.post-navigation {
-  @include clearfix;
+.reveal-overlay {
+  background: $color-main;
+  opacity: .95;
+
+  .reveal {
+    border:none;
+    background: #584f4f;
+    box-shadow: inset 0 0 10rem #3d3737;  
+  }
 }
 
-.nav-previous {
-  float:left;
+ // Search Form
+#search-container {
+  position:absolute;
+  top:0;
+  right:8.3rem;
+  width:68%;
+  height:5.6rem;
+  z-index:1000;
+  overflow:hidden;
+  display:none;
+
+  @include breakpoint(medium down) {
+    width:64%;
+  }
+  @include breakpoint(small only) {
+    display:none !important;
+  }
 }
 
-.nav-next {
-  float:right;
+::-webkit-input-placeholder {
+   color: #888;
+}
+
+#searchform {
+  position:absolute;
+  width:100%;
+  left:100%;
+  transition: all 1s ease-in-out;
+  
+  &.move-left {
+    left:0% ;
+    opacity:100;
+    transition: all 1s ease-in-out;
+  }
+  input[type="text"] {
+    max-width:100%;
+    height:3.98rem;
+    border:none;
+    border-bottom:solid 5px #ccc;
+    background:none;
+    font-family: $raleway-font;
+    font-weight:600;
+    font-size:1.5em;
+    line-height:5.1rem;
+    box-shadow:none;
+    color:#fff; 
+
+    @include breakpoint(medium down) {
+      height:4.4rem;
+      font-size:1.8em;
+      line-height:2em;
+    }  
+  }
+  button {
+    height:3.98rem;
+    margin:0;
+    padding:0 1rem;
+    border:none;
+    cursor: pointer;
+    position:absolute;
+    right:0;
+    top:0;
+    color:#fff;
+    line-height:2rem; 
+    font-size:1.5rem;
+    font-weight:bold;
+    transition: color .3s ease-in-out;
+
+    @include breakpoint(medium only) {
+      top:0;
+      height:3.9rem;
+    } 
+
+    &:hover {
+      color: $accent;
+      transition: color .3s ease-in-out;
+    }
+  }
 }

@@ -31,6 +31,30 @@ if ( ! function_exists( 'foundationpress_sidebar_widgets' ) ) :
 				'after_title'   => '</h6>',
 			)
 		);
+
+		register_sidebar(
+			array(
+				'id'            => 'contact-form',
+				'name'          => __( 'Desktop nav widgets', 'foundationpress' ),
+				'description'   => __( 'Drag widgets to this reveal pop-up container', 'foundationpress' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h6>',
+				'after_title'   => '</h6>',
+			)
+		);
+
+		register_sidebar(
+			array(
+				'id'            => 'mobile-contact-form',
+				'name'          => __( 'Mobile nav widgets', 'foundationpress' ),
+				'description'   => __( 'Drag widgets to this mobile only container', 'foundationpress' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h6>',
+				'after_title'   => '</h6>',
+			)
+		);
 	}
 
 	add_action( 'widgets_init', 'foundationpress_sidebar_widgets' );
