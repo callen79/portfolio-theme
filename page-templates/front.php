@@ -20,135 +20,50 @@ get_header(); ?>
 
 <section id="featured" class="work-featured" role="main">  
     <h2>Case Studies</h2>
-  
-    <?php while ( have_posts() ) : the_post(); ?>
+
+   <?php 
     
-    <?php 
-            $args1 = array (
-                'category_name'    => 'featured',
-                'posts_per_page'   => '1',
-            );
+   ?>
+
+    <?php while ( have_posts() ) : the_post(); ?>
+
+    <?php $loop = new WP_Query( array( 'category_name'    => 'featured', 'posts_per_page'   => '3',) ); ?>
+        <?php
+            $i = 0;
+            while ( $loop->have_posts() ) : $loop->the_post(); 
+
+            if( $i % 2 == 1 )
+                $class = 'right';
+            else
+                $class = ''; 
+            ?>
+
+        <article class="post grid-x grid-margin-x <?php echo $class ?>">
+            <?php $i++; ?>
             
-            // The Query
-            $query = new WP_Query( $args1 ); ?>
-         <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-        
-         <article class="post" >
-            <div class="grid-x grid-margin-x">
-              <div class="cell auto">
+            <div class="cell auto">
                 <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">  
                     <div class="ipad">
                         <figure>
                             <?php the_post_thumbnail('fp-xlarge'); ?>
                         </figure>
                     </div>
-                  </a>
-              </div>
-              
-              <div class="cell small-12 medium-12 large-4">
-                  <div class="post-content">
-
-                      <h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-                            
-                            <?php the_excerpt(); ?>
-
-                      <a href="<?php the_permalink() ?>" class="button primary round wacom hollow" data-text="View project">View project</a>
-                  </div> 
-              </div>
+                </a>
             </div>
-         </article>
-        
-         <?php endwhile; 
-            wp_reset_postdata();
-            else : ?>
-
-            <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-    <?php endif; ?>   
-
-    <?php 
-            $args2 = array (
-                'category_name'    => 'featured',
-                'posts_per_page'   => '1',
-                'offset'      => '1'
-            );
             
-            // The Query
-            $query = new WP_Query( $args2 ); ?>
-         <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-        
-         <article class="post right" >
-            <div class="grid-x grid-margin-x">
-              <div class="cell small-12 medium-12 large-4">
-                  <div class="post-content">
-                      <h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+            <div class="cell small-12 medium-12 large-4">
+                <div class="post-content">
+
+                    <h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
                             
                             <?php the_excerpt(); ?>
 
-                      <a href="<?php the_permalink() ?>" class="button primary round wacom hollow" data-text="View project">View project</a>
-                  </div> 
-              </div>
-
-              <div class="cell auto">
-                <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">  
-                    <div class="ipad">
-                        <figure>
-                            <?php the_post_thumbnail('fp-xlarge'); ?>
-                        </figure>
-                    </div>
-                  </a>
-              </div>
+                    <a href="<?php the_permalink() ?>" class="button primary round wacom hollow" data-text="View project">View project</a>
+                </div> 
             </div>
-         </article>
-        
-       <?php endwhile; 
-            wp_reset_postdata();
-            else : ?>
-
-            <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-    <?php endif; ?>   
-
-    <?php 
-            $args3 = array (
-                'category_name'    => 'featured',
-                'posts_per_page'   => '1',
-                'offset'      => '2'
-            );
-            
-            // The Query
-            $query = new WP_Query( $args3 ); ?>
-         <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-        
-         <article class="post" >
-            <div class="grid-x grid-margin-x">
-              <div class="cell auto">
-                <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">  
-                    <div class="ipad">
-                        <figure>
-                            <?php the_post_thumbnail('fp-xlarge'); ?>
-                        </figure>
-                    </div>
-                  </a>
-              </div>
-              
-              <div class="cell small-12 medium-12 large-4">
-                  <div class="post-content">
-
-                      <h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-                            
-                            <?php the_excerpt(); ?>
-
-                      <a href="<?php the_permalink() ?>" class="button primary round wacom hollow" data-text="View project">View project</a>
-                  </div> 
-              </div>
-            </div>
-         </article>
-        
-         <?php endwhile; 
-            wp_reset_postdata();
-            else : ?>
-
-            <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-    <?php endif; ?>              
+        </article>
+    <?php endwhile ?> 
+ 
 </section>
 
 <?php endwhile; ?>

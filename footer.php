@@ -17,16 +17,6 @@
     </div>
 </footer>
 
-
-<div class="reveal contact" id="contact" data-close-on-click="true" data-animation-in="slide-in-right" data-animation-out="slide-out-right" data-reveal>
-  	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Desktop nav widgets") ) : ?>
-	<?php endif;?>
-	<button class="close-button" data-close aria-label="Close modal" type="button">
-	    <span aria-hidden="true">&times;</span>
-	</button>
-</div>
-
-
 <script>
 
 

@@ -129,8 +129,8 @@ get_header(); ?>
                <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
                <?php endif; ?>
                       
-            </div>
       </div>
+  </div>
 </section>
 
 <section id="more-work" class="work-row" >

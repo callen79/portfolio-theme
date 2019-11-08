@@ -17,9 +17,8 @@
 
 	<body <?php body_class(); ?>>
 
-	<div class="overlay" id="overlay">
+	<aside class="overlay" id="overlay">
 		<div id="tools">
-			<a href="#" id="contact-toggle-mobile"><i class="icon-comment-1"></i></a>
 			<a href="#" id="search-toggle-mobile"><i class="icon-search-outline"></i></a>
 		</div>
 
@@ -35,7 +34,7 @@
 			get_search_form();
 			remove_filter( 'get_search_form', 'extra_search_form' ); ?>
 		</section>
-	</div>
+	</aside>
 
 	<header class="site-header" role="banner">
 		<div class="site-title-bar title-bar ">
@@ -62,10 +61,7 @@
 				<ul class="menu">
 					<li>
 						<i class="icon-search-outline" id="search-toggle"></i>
-					</li>
-    				<li>
-    					<i class="icon-comment-1" data-open="contact" id="mail"></i>
-    				</li>            					
+					</li>         					
     			</ul>
     			
 				<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) === 'topbar' ) : ?>
