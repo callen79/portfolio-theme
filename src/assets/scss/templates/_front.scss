@@ -125,12 +125,8 @@ $project-color-width: 2rem;
   }
 
   article.post {
-    width:100%;
-    
-    position:relative;  
     text-align: left;
     display: table;
-    clear:both;
 
     .auto {
       position:relative;
@@ -162,7 +158,7 @@ $project-color-width: 2rem;
       border-radius:20px;
       background:#212932;
       overflow:hidden;
-      position:absolute;
+      position:relative;
 
       figure {
         width: $ipad-screen-width; 
@@ -213,7 +209,7 @@ $project-color-width: 2rem;
 
     &:not(.right) {
       .ipad {
-        right:6%;
+        right:26%;
       }
     }
 

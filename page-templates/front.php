@@ -19,7 +19,7 @@ get_header(); ?>
 </header>
 
 <section id="featured" class="work-featured" role="main">  
-    <h2>Case Studies</h2>
+    <h2>Case Studies</h2> 
 
    <?php 
     
@@ -33,37 +33,14 @@ get_header(); ?>
             while ( $loop->have_posts() ) : $loop->the_post(); 
 
             if( $i % 2 == 1 )
-                $class = 'right';
+                get_template_part( 'template-parts/content-case-study-right' );
             else
-                $class = ''; 
+                get_template_part( 'template-parts/content-case-study' );
             ?>
 
-        <article class="post grid-x grid-margin-x <?php echo $class ?>">
-            <?php $i++; ?>
-            
-            <div class="cell auto">
-                <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">  
-                    <div class="ipad">
-                        <figure>
-                            <?php the_post_thumbnail('fp-xlarge'); ?>
-                        </figure>
-                    </div>
-                </a>
-            </div>
-            
-            <div class="cell small-12 medium-12 large-4">
-                <div class="post-content">
-
-                    <h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-                            
-                            <?php the_excerpt(); ?>
-
-                    <a href="<?php the_permalink() ?>" class="button primary round wacom hollow" data-text="View project">View project</a>
-                </div> 
-            </div>
-        </article>
+        <?php $i++; ?>
+        
     <?php endwhile ?> 
- 
 </section>
 
 <?php endwhile; ?>

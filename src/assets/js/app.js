@@ -195,19 +195,19 @@ $('#search-toggle-mobile').click(function() {
 	}
 });
 
-$('#contact-toggle-mobile').click(function() {
-	if (!mailOn) {
-		$('#overlay').addClass('contact').removeClass('search');
-		mailOn = true;
-		searchOn = false;
-	} else {
-		$('#overlay').removeClass('search').removeClass('contact');
-		mailOn = false;
-	}
-});
-
 $('.view-more a').click(function() {
 	$("html, body").animate({ scrollTop: $('#featured').offset().top }, 1000);
 });
+
+// Scroll Magic animations
+
+ // init ScrollMagic controller
+ var controller = new ScrollMagic.Controller();
+
+ // Animate first screen in hero
+ new ScrollMagic.Scene({triggerElement: "#post-238", duration:900})
+        .setClassToggle("#post-238 .ipad", "visible") // add class toggle
+        .addIndicators() // add indicators (requires plugin)
+        .addTo(controller);
 
 
