@@ -200,14 +200,19 @@ $('.view-more a').click(function() {
 });
 
 // Scroll Magic animations
+var controller = new ScrollMagic.Controller();
 
- // init ScrollMagic controller
- var controller = new ScrollMagic.Controller();
+// build tween
+var tween = TweenMax.fromTo("#post-238 .ipad", 1,
+{left: -1000,
+ alpha:0},
+{left: -300, 
+ ease: Circ.easeInOut,
+ alpha:1}
+);
 
- // Animate first screen in hero
- new ScrollMagic.Scene({triggerElement: "#post-238", duration:900})
-        .setClassToggle("#post-238 .ipad", "visible") // add class toggle
-        .addIndicators() // add indicators (requires plugin)
-        .addTo(controller);
-
-
+// build scene
+var scene = new ScrollMagic.Scene({triggerElement: "#featured h2", duration: 250, offset: -50})
+.setTween(tween)
+.addIndicators({name: "loop"}) // add indicators (requires plugin)
+.addTo(controller);
