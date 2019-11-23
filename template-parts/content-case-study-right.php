@@ -16,10 +16,27 @@
 
 	            <h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 	                    
-	                    <?php the_excerpt(); ?>
+				<div class="post-meta">
+                    <span>C:
+                    <?php $mykey_values = get_post_custom_values( 'Client' );
+                        foreach ( $mykey_values as $key => $value ) {
+                        echo "<strong>$value</strong>"; 
+                        }
+                    ?></span>
 
-	            <a href="<?php the_permalink() ?>" class="button primary round wacom hollow" data-text="View project">View project</a>
-	        </div> 
+                    <span>Y:
+                    <?php $mykey_values = get_post_custom_values( 'Year' );
+                        foreach ( $mykey_values as $key => $value ) {
+                        echo "<strong>$value</strong>"; 
+                        }
+                    ?></span>
+                </div>
+				
+				<?php the_excerpt(); ?>
+
+				<aside>
+                    <a href="<?php the_permalink() ?>" class="button primary round wacom hollow" data-text="View project">View project</a>
+                </aside>	        </div> 
 	    </div>
 
 	    <div class="cell auto">

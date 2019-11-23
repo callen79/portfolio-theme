@@ -1,4 +1,5 @@
 @import "global/colors";
+@import "global/fonts";
 @import "templates/single-post";
 
 // hero settings
@@ -19,7 +20,6 @@ $ipad-screen-width: 100%;
 // color scheme circles
 $project-color-height: 2rem;
 $project-color-width: 2rem;
-
 
 #homepage-hero, #about-hero {
   width:100%;
@@ -109,7 +109,6 @@ $project-color-width: 2rem;
   }
 }
 
-
 #featured {
   display:table;
   width:100%;
@@ -133,8 +132,41 @@ $project-color-width: 2rem;
     }
 
     .post-content {
-      h3 a {
-        color:#f3f3f3; 
+      h3, div.meta, p, a.button {
+        position:relative;
+      }
+      
+      h3 a { 
+          color:#f3f3f3;
+      }
+
+      div.post-meta {
+        padding: 0 0 .5rem;
+        margin: 0 0 2rem;
+        position:relative;
+        border-bottom: solid 1px #666;
+        font-family: $yantramanav;
+        font-family:1em;
+        letter-spacing:.05em;
+
+        span {
+          display:inline-block;
+          margin-right:1rem;
+
+          strong {
+            color:#fff;
+            font-weight:500;
+          }
+        }
+      }
+
+      p {
+        margin-bottom:0;
+      }
+
+      aside {
+        padding:2rem 0;
+        overflow:hidden;
       }
 
       @include breakpoint(medium only) {
@@ -149,6 +181,7 @@ $project-color-width: 2rem;
 
     .button {
       margin:.5rem 0 0;
+      position:relative;
       clear:both;
     }
 
