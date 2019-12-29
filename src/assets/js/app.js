@@ -243,7 +243,9 @@ var caseStudyButton1 = TweenMax.fromTo("#post-238 a.button", 1,
  alpha:1}
 );
 
-// Case Study 1
+// Second Case Study Tweens
+
+// Case Study 1 Scenes
 var scene = new ScrollMagic.Scene({triggerElement: "#featured h2", duration: 300, offset: -50})
 .setTween(ipad1)
 .addIndicators({name: "loop"}) // add indicators (requires plugin)
@@ -268,3 +270,6 @@ var scene5 = new ScrollMagic.Scene({triggerElement: "#post-238", duration: 230, 
 .setTween(caseStudyButton1)
 .addIndicators({name: "loop"}) // add indicators (requires plugin)
 .addTo(controller);
+
+
+// Case Study 2 Scenes
