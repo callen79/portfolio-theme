@@ -202,7 +202,9 @@ $('.view-more a').click(function() {
 // Home page Animations - ScrollMagic
 var controller = new ScrollMagic.Controller();
 
-// First Case Study Tweens
+// CASE STUDY 1
+
+// tweens
 var ipad1 = TweenMax.fromTo("#post-238 .ipad", 1,
 {left: -1000,
  alpha:0},
@@ -243,9 +245,7 @@ var caseStudyButton1 = TweenMax.fromTo("#post-238 a.button", 1,
  alpha:1}
 );
 
-// Second Case Study Tweens
-
-// Case Study 1 Scenes
+// scenes
 var scene = new ScrollMagic.Scene({triggerElement: "#featured h2", duration: 300, offset: -50})
 .setTween(ipad1)
 .addIndicators({name: "loop"}) // add indicators (requires plugin)
@@ -272,4 +272,32 @@ var scene5 = new ScrollMagic.Scene({triggerElement: "#post-238", duration: 230, 
 .addTo(controller);
 
 
-// Case Study 2 Scenes
+// CASE STUDY 2
+
+// Tweens
+var ipad2 = TweenMax.fromTo("#post-39 .ipad", 1,
+{left: 1000,
+ alpha:0},
+{left: 50, 
+ ease: Circ.easeInOut,
+ alpha:1}
+);
+
+var caseStudyTitle2 = TweenMax.fromTo("#post-39 h3", 1,
+{left: -100,
+ alpha:0},
+{left: 0, 
+ ease: Circ.easeInOut,
+ alpha:1}
+);
+
+// Scenes
+var scene6 = new ScrollMagic.Scene({triggerElement: "#post-39", duration: 300, offset: -100})
+.setTween(ipad2)
+.addIndicators({name: "loop"}) // add indicators (requires plugin)
+.addTo(controller);
+
+var scene7 = new ScrollMagic.Scene({triggerElement: "#post-39", duration: 300, offset: -50})
+.setTween(caseStudyTitle2)
+.addIndicators({name: "loop"}) // add indicators (requires plugin)
+.addTo(controller);
